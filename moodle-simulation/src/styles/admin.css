@@ -1,0 +1,63 @@
+body{
+    padding: 20px 40px;
+}
+
+.selectUserType.visible{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.selectUserType{
+    display: none;
+    background-color: rgb(216, 216, 216);
+    border: 2px solid #000;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.selectUserType button{
+    margin: 0 20px;
+    padding: 10px;
+}
+
+.selectUserType .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.selectUserType  form {
+    display: flex;
+    flex-direction: column;
+}
+
+.selectUserType  form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.selectUserType form div.btns{
+    flex-direction: row;
+    margin: 10px 0;
+}
+.selectUserType  form div.btns button{
+    min-width: 150px;
+}
+
+.selectUserType .content button{
+    width: 100%;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.selectUserType .content div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

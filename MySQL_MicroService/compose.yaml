@@ -1,0 +1,60 @@
+version: "3.9"
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb_container
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: rootpassword
+      MARIADB_DATABASE: my_database
+      MARIADB_USER: my_user
+      MARIADB_PASSWORD: my_password
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    volumes:
+      - ./db_stuff:/docker-entrypoint-initdb.d/  # Initialize the database
+      - mariadb_data:/var/lib/mysql             # Persist data
+
+  rest-service:
+
+    image: rest-service
+    build:
+      context: .
+      dockerfile: Dockerfile.rest
+    depends_on:
+      - mariadb
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb_container:3306/my_database
+
+      SPRING_DATASOURCE_USERNAME: my_user
+      SPRING_DATASOURCE_PASSWORD: my_password
+    networks:
+      - app-network
+
+  grpc-service:
+    image: grpc-service
+    build:
+      context: .
+      dockerfile: Dockerfile.grpc
+    depends_on:
+      - mariadb
+    ports:
+      - "9090:9090"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb_container:3306/my_database
+      SPRING_DATASOURCE_USERNAME: my_user
+      SPRING_DATASOURCE_PASSWORD: my_password
+    networks:
+      - app-network
+
+volumes:
+  mariadb_data:
+
+networks:
+  app-network:

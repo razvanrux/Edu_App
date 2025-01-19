@@ -1,0 +1,9 @@
++----+-------------------------+----------------------+----------+
+| id | email                   | parola               | rol      |
++----+-------------------------+----------------------+----------+
+|  1 | admin@example.com       | secureAdminPass123   | ADMIN    |
+|  4 | student1@example.com    | secureStudentPass123 | STUDENT  |
+|  5 | student2@example.com    | secureStudentPass456 | STUDENT  |
+|  6 | updateduser@example.com | newSecurePass456     | PROFESOR |
+|  7 | newuser1@example.com    | newpassword123       | STUDENT  |
++----+-------------------------+----------------------+----------+

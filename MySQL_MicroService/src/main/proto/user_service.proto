@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package com.example.grpc;
+
+option java_package = "com.example.grpc"; // Generated classes package
+option java_multiple_files = true; // Generates separate files for each type
+
+// Import the Google Protobuf Empty message
+import "google/protobuf/empty.proto";
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (UserResponse);
+  rpc GetUserById (UserIdRequest) returns (UserResponse);
+  rpc UpdateUser (UpdateUserRequest) returns (UserResponse);
+  rpc DeleteUser (UserIdRequest) returns (google.protobuf.Empty);
+  rpc GetAllUsers (google.protobuf.Empty) returns (UserListResponse);
+}
+
+// Messages
+message CreateUserRequest {
+  string email = 1;
+  string password = 2;
+  Role role = 3;
+}
+
+message UpdateUserRequest {
+  int32 id = 1;
+  string email = 2;
+  string password = 3;
+  Role role = 4;
+}
+
+message UserIdRequest {
+  int32 id = 1;
+}
+
+message UserResponse {
+  int32 id = 1;
+  string email = 2;
+  Role role = 3;
+}
+
+message UserListResponse {
+  repeated UserResponse users = 1;
+}
+
+// Enum for roles
+enum Role {
+  ADMIN = 0;
+  PROFESOR = 1;
+  STUDENT = 2;
+}

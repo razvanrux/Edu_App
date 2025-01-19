@@ -1,0 +1,14 @@
+# Use a lightweight Java image
+FROM openjdk:17-jdk-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy the compiled JAR file
+COPY target/MySQL_MicroService-0.0.1-SNAPSHOT.jar /app/app.jar
+
+# Expose the REST API port
+EXPOSE 8081
+
+# Command to run the REST application
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

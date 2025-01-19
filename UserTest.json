@@ -1,0 +1,157 @@
+{
+  "info": {
+    "name": "Utilizatori API Full Test with Token",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Utilizatori",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczNzIyMjgzNiwiZXhwIjoxNzM3MjI2NDM2fQ.8MSieVQy_50h9U6HxU5Bxh_-dTJMkm7UJ00NiK8Xrck"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/utilizatori",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["utilizatori"]
+        }
+      }
+    },
+    {
+      "name": "Get Utilizator by ID - Found",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczNzIyMjgzNiwiZXhwIjoxNzM3MjI2NDM2fQ.8MSieVQy_50h9U6HxU5Bxh_-dTJMkm7UJ00NiK8Xrck"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/utilizatori/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["utilizatori", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get Utilizator by ID - Not Found",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczNzIyMjgzNiwiZXhwIjoxNzM3MjI2NDM2fQ.8MSieVQy_50h9U6HxU5Bxh_-dTJMkm7UJ00NiK8Xrck"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/utilizatori/999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["utilizatori", "999"]
+        }
+      }
+    },
+    {
+      "name": "Add Utilizator - Created",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczNzIyMjgzNiwiZXhwIjoxNzM3MjI2NDM2fQ.8MSieVQy_50h9U6HxU5Bxh_-dTJMkm7UJ00NiK8Xrck"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"johndoe@example.com\",\n    \"role\": \"ADMIN\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/utilizatori",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["utilizatori"]
+        }
+      }
+    },
+    {
+      "name": "Add Utilizator - Conflict",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczNzIyMjgzNiwiZXhwIjoxNzM3MjI2NDM2fQ.8MSieVQy_50h9U6HxU5Bxh_-dTJMkm7UJ00NiK8Xrck"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Duplicate User\",\n    \"email\": \"johndoe@example.com\",\n    \"role\": \"USER\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/utilizatori",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["utilizatori"]
+        }
+      }
+    },
+    {
+      "name": "Delete Utilizator - Success",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczNzIyMjgzNiwiZXhwIjoxNzM3MjI2NDM2fQ.8MSieVQy_50h9U6HxU5Bxh_-dTJMkm7UJ00NiK8Xrck"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/utilizatori/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["utilizatori", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Utilizator - Not Found",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczNzIyMjgzNiwiZXhwIjoxNzM3MjI2NDM2fQ.8MSieVQy_50h9U6HxU5Bxh_-dTJMkm7UJ00NiK8Xrck"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/utilizatori/999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["utilizatori", "999"]
+        }
+      }
+    }
+  ]
+}
